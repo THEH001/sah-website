@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="he">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>S.A.H – פרויקטים</title>
+<link rel="stylesheet" href="style.css">
+<style>
+.projects-grid {display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:20px; padding:20px;}
+.project img {width:100%; cursor:pointer; border:2px solid #1E3A8A; border-radius:5px;}
+#lightbox {display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.8); justify-content:center; align-items:center;}
+#lightbox img {max-width:90%; max-height:80%;}
+#lightbox span {position:absolute; top:20px; right:40px; font-size:40px; color:#fff; cursor:pointer;}
+</style>
+</head>
+<body>
+<header>
+  <h1>S.A.H</h1>
+  <nav>
+    <a href="index.html">בית</a>
+    <a href="about.html">אודות</a>
+    <a href="services.html">שירותים</a>
+    <a href="projects.html">פרויקטים</a>
+    <a href="contact.html">צור קשר</a>
+  </nav>
+</header>
+<section>
+  <h2>פרויקטים</h2>
+  <div class="projects-grid">
+    <div class="project"><img src="images/project1.jpg" alt="לובי מודרני"></div>
+    <div class="project"><img src="images/project2.jpg" alt="בית פרטי"></div>
+    <div class="project"><img src="images/project3.jpg" alt="משרד תעשייתי"></div>
+  </div>
+</section>
+<div id="lightbox" onclick="this.style.display='none'">
+  <span onclick="document.getElementById('lightbox').style.display='none'">&times;</span>
+  <img id="lightbox-img" src="">
+</div>
+<footer>
+  <p>© 2025 S.A.H – כל הזכויות שמורות</p>
+</footer>
+<script>
+document.querySelectorAll('.project img').forEach(img=>{
+  img.addEventListener('click', ()=>{
+    document.getElementById('lightbox-img').src = img.src;
+    document.getElementById('lightbox').style.display = 'flex';
+  });
+});
+</script>
+</body>
+</html>
